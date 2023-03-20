@@ -6,22 +6,27 @@
 /*   By: ffreze <ffreze@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 13:49:41 by ffreze            #+#    #+#             */
-/*   Updated: 2023/03/09 15:56:20 by ffreze           ###   ########.fr       */
+/*   Updated: 2023/03/14 10:18:34 by ffreze           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int main(int arc, char** argv)
+int main(int argc, char** argv)
 {
-    int len;
-    int *count;
+    char **count;
+    int i;
+    char *num
+    int *stack
     
-    len = ft_strlen(argv);
-    count = malloc(sizeof(int) * len);
-    count = ft_atoi(argv[1]);
-    if (check_condition(count, len) == 1)
-        return (write(2, "Error\n", 6);)
-    else
-    
+    i = 1        
+    while (i <= argc)
+    {
+        num = ft_strjoin(num, argv[i]);
+        i++;
+    }
+    if (check_letters(num) == 1)
+        return(write(2, "Error\n", 6));
+    count = ft_split(num, ' ');
+    stack = ft_atoi_split(count);
 }

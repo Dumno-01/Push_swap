@@ -6,7 +6,7 @@
 /*   By: ffreze <ffreze@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 18:20:45 by ffreze            #+#    #+#             */
-/*   Updated: 2023/03/09 14:50:42 by ffreze           ###   ########.fr       */
+/*   Updated: 2023/03/20 11:35:06 by ffreze           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ int	ft_atoi(const char *str)
 		nbr = nbr * 10 + ((char)str[i++] - '0');
 	if (sign % 2 == 1)
 		return (nbr * -1);
+	if (nrb > 2147483647 || nbr < -2147483648)
+		return(write(2, "Error\n", 6));
 	return (nbr);
 }
 
@@ -43,7 +45,7 @@ size_t	ft_strlen(const char	*s)
 	return (i);
 }
 
-int		check_condition(int *str, int len)
+int		check_double(int *str, int len)
 {
 	int i;
 	int j;
@@ -63,4 +65,34 @@ int		check_condition(int *str, int len)
 		}
 	}	
 	return (0);
+}
+
+int		check_letters(char *str)
+{
+	int i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] < '0' || str[i] > '9')
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
+int 	*ft_atoi_split(char **str)
+{
+	int i;
+	int *stack;
+	
+	stack = malloc(sizeof(int) * ft_strlen(str));
+	i = 0
+	
+	while(str[i] != '\0')
+	{
+		stack[i] = ft_atoi(str[i]);
+		i++;
+	}
+	return (stack)
 }
