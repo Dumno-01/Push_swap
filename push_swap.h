@@ -12,3 +12,37 @@
 
 int	ft_atoi(const char *str);
 size_t	ft_strlen(const char     *s);
+struct  Case {
+    int stacka;
+    int stackb;
+}
+
+// Idee
+
+typedef struct s_stack {
+    int *array; // Tableau d'entier.
+    int cursor; // Index du dernier element du tableau
+    int max_size; // Nombre total delement
+}   t_stack;
+/*
+stack a 
+{
+    [ 2, 4, 5, 8, 3 ],
+    4
+    5
+}
+
+stack b
+{
+    [ ]
+    0
+    5
+}
+
+PB
+
+REGARDER SUR LA STACK A SI IL Y A UN ELEMENT A PUSH
+CURSOR > ZERO
+STACKB->ARRAY{CURSOR} EGAL STACKA->array{cursor}
+srackb>cursor++
+stacka>cursor--
