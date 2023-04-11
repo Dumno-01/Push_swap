@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-int *swap_a(int *stack)
+void *swap_a(int *stack)
 {
     int i;
     int tmp;
@@ -25,7 +25,7 @@ int *swap_a(int *stack)
     return (stack);
 }
 
-int *ra(int *stack, int size)
+void *ra(int *stack, int size)
 {
     int first_n;
 
@@ -40,7 +40,7 @@ int *ra(int *stack, int size)
     return(stack);
 }
 
-int *rra(int *stack, int size)
+void *rra(int *stack, int size)
 {
     int last_n;
 
@@ -55,7 +55,7 @@ int *rra(int *stack, int size)
     return(stack);
 }
 
-int *pb(int *stack, int *stackb)
+void *pb(s_stacks stacks)
 {
     
 }

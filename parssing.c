@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-s_stack	*ft_index(int *str, int size)
+s_stack	ft_index(int *str, s_stack index)
 {
 	s_stack stack;
 	int count;
@@ -24,20 +24,21 @@ s_stack	*ft_index(int *str, int size)
 	pos = 0;
 	numb = 0
 	count = 0;
-	stack.array = malloc(sizeof(int) * size);
-	while (count <= size)
+	stacks[A].array = malloc(sizeof(int) * stacks[A].cursor);
+	stacks[B].array = malloc(sizeof(int) * stacks[A].cursor);
+	while (count <= stacks[A].cursor)
 	{
-		while (i <= size)
+		while (i <= stacks[A].cursor)
 		{
 			if (str[numb] < str[i++])
 				pos++;
 		}
-		stack.array[numb++] = pos;
+		stacks[A].array[numb++] = pos;
 		count++;
 		i = 0;
 		pos = 0;
 	]
-	return (index);
+	return (stack);
 }
 
 void	ft_push_swap(int *stack, int *index, int size)
@@ -54,7 +55,7 @@ int	main(int argc, char** argv)
     int size;
     char *num;
     int *stack;
-    int *index;
+    s_stack stacks[2];
     
     size = 1;   
     while (size <= argc)
@@ -65,8 +66,47 @@ int	main(int argc, char** argv)
     if (check_letters(num) == 1)
         return(write(2, "Error\n", 6));
     count = ft_split(num, ' ');
-    size = ft_strlen(count);
+    stacks[A].cursor = (int)ft_strlen(count) - 1;
     stack = ft_atoi_split(count);
-    index = ft_index(stack, size);
-	ft_push_swap(stack, index, size);
+    stacks[A] = ft_index(stack, stacks[A]);
+	ft_push_swap(stack, stacks[A], size);
 }
+
+/*
+
+int	ft_atoi(char *str, int *out)
+{
+	// TOUT LES TRUC DE ATOI SI CA SE PASSE BIEN A LA FIN ON ECRIT DANS OUT
+	*out = mon entier
+	// SI YA UNE ERREUR
+		return (-1);
+	// SI CA SE PASSE BIEN
+		return (0);
+}
+
+int main(int ac, char **av)
+{
+	int current_int;
+
+	if (ft_atoi("42", &current_int) < 0)
+		return (ERROR)
+	// tu push ton entier
+	push(stack, current_int)
+	et tu boucle
+}
+
+
+type *variable;
+
+*variable -> type
+
+int* nb;
+
+*nb -> cest un entier
+
+nb -> cest une adresse
+
+nb[1] <=> *(nb + 1)
+
+
+*/

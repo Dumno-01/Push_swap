@@ -12,30 +12,29 @@
 
 #include "push_swap.h"
 
-int	ft_atoi(const char *str)
+int	ft_atoi(const char *str, int *res)
 {
 	int						i;
-	unsigned long int		nbr;
 	int						sign;
 
 	i = 0;
-	nbr = 0;
+	*res = 0;
 	sign = 0;
 	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
 		i++;
 	if ((char)str[i] == '-' || (char)str[i] == '+')
 		if ((char)str[i++] == '-')
-		sign ++;
+			sign++;
 	while ((char)str[i] >= '0' && (char)str[i] <= '9')
-		nbr = nbr * 10 + ((char)str[i++] - '0');
+		*res = *res * 10 + ((char)str[i++] - '0');
+	if (*res > 2147483647 || *res < -2147483648)
+		return(-1);
 	if (sign % 2 == 1)
-		return (nbr * -1);
-	if (nrb > 2147483647 || nbr < -2147483648)
-		return(write(2, "Error\n", 6));
-	return (nbr);
+		*res = *res * -1;
+	return (0);
 }
 
-size_t	ft_strlen(const char	*s)
+size_t	ft_strlen(const char	**s)
 {
 	size_t	i;
 
