@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-int	ft_atoi(const char *str, int *res)
+int	ft_atoires(const char *str, int *res)
 {
 	int						i;
 	int						sign;
@@ -34,7 +34,7 @@ int	ft_atoi(const char *str, int *res)
 	return (0);
 }
 
-size_t	ft_strlen(const char	**s)
+size_t	ft_strlen(const char	*s)
 {
 	size_t	i;
 
@@ -73,7 +73,7 @@ int		check_letters(char *str)
 	i = 0;
 	while (str[i])
 	{
-		if (str[i] < '0' || str[i] > '9')
+		if ((str[i] < '0' && str[i] != ' ') || (str[i] > '9' && str[i] != ' '))
 			return (1);
 		i++;
 	}
@@ -85,13 +85,13 @@ int 	*ft_atoi_split(char **str)
 	int i;
 	int *stack;
 	
-	stack = malloc(sizeof(int) * ft_strlen(str));
-	i = 0
+	stack = malloc(sizeof(int) * ft_strlen((char*)str));
+	i = 0;
 	
-	while(str[i] != '\0')
+	while(str[i] != 0)
 	{
-		stack[i] = ft_atoi(str[i]);
+		ft_atoires(str[i], &stack[i]);
 		i++;
 	}
-	return (stack)
+	return (stack);
 }

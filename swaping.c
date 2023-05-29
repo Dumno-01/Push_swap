@@ -12,24 +12,23 @@
 
 #include "push_swap.h"
 
-void *swap_a(int *stack)
+void swap_a(int *stack)
 {
     int i;
     int tmp;
 
-    i = 0
+    i = 0;
     tmp = stack[i];
     stack[i] = stack[i + 1];
     stack[i + 1] = tmp;
-
-    return (stack);
 }
 
-void *ra(int *stack, int size)
+void ra(int *stack, int size)
 {
     int first_n;
+    int i;
 
-    i = 0
+    i = 0;
     first_n = stack[0];
     while (i < size)
     {
@@ -37,12 +36,12 @@ void *ra(int *stack, int size)
         i++;
     }
     stack[size] = first_n;
-    return(stack);
 }
 
-void *rra(int *stack, int size)
+void rra(int *stack, int size)
 {
     int last_n;
+    int i;
 
     i = size - 1;
     last_n = stack[size];
@@ -52,10 +51,33 @@ void *rra(int *stack, int size)
         i--;
     }
     stack[0] = last_n;
-    return(stack);
 }
 
-void *pb(s_stacks stacks)
+void pb(t_stack stacks[2])
 {
-    
+  if (stacks[A].cursor > 0)
+  {
+    stacks[B].array[stacks[B].cursor] = stacks[A].array[stacks[A].cursor];
+    stacks[B].cursor++;
+    stacks[A].cursor--;
+  }
 }
+
+void pa(t_stack stacks[2])
+{
+  if (stacks[B].cursor > 0)
+  {
+    stacks[A].array[stacks[A].cursor] = stacks[B].array[stacks[B].cursor];
+    stacks[A].cursor++;
+    stacks[B].cursor--;
+  }
+}
+
+/*PB
+
+REGARDER SUR LA STACK A SI IL Y A UN ELEMENT A PUSH
+    if CURSOR > ZERO
+        STACKB->ARRAY{CURSOR} EGAL STACKA->array{cursor}
+srackb>cursor++
+stacka>cursor--
+*/

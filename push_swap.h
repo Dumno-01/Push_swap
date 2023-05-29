@@ -6,18 +6,23 @@
 /*   By: ffreze <ffreze@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 13:50:20 by ffreze            #+#    #+#             */
-/*   Updated: 2023/03/06 14:02:35 by ffreze           ###   ########.fr       */
+/*   Updated: 2023/04/11 10:29:30 by ffreze           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
+#include "libft.h"
+
 # define A 0
 # define B 1
 
-int	ft_atoi(const char *str);
+int	ft_atoires(const char *str, int *res);
 size_t	ft_strlen(const char     *s);
+int		check_letters(char *str);
+int 	*ft_atoi_split(char **str);
+int		check_double(int *str, int len);
 typedef struct s_stack {
     int *array; // Tableau d'entier.
     int cursor; // Index du dernier element du tableau
@@ -40,11 +45,4 @@ stack b
     0
     5
 }
-
-PB
-
-REGARDER SUR LA STACK A SI IL Y A UN ELEMENT A PUSH
-    if CURSOR > ZERO
-        STACKB->ARRAY{CURSOR} EGAL STACKA->array{cursor}
-srackb>cursor++
-stacka>cursor--
+*/

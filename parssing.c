@@ -6,23 +6,23 @@
 /*   By: ffreze <ffreze@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 13:49:41 by ffreze            #+#    #+#             */
-/*   Updated: 2023/03/14 10:18:34 by ffreze           ###   ########.fr       */
+/*   Updated: 2023/04/12 10:05:15 by ffreze           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-s_stack	ft_index(int *str, s_stack index)
+
+void	ft_index(int *str, t_stack stacks[2])
 {
-	s_stack stack;
 	int count;
-	int numb:
-	int i:
+	int numb;
+	int i;
 	int pos;
 
 	i = 0;
 	pos = 0;
-	numb = 0
+	numb = 0;
 	count = 0;
 	stacks[A].array = malloc(sizeof(int) * stacks[A].cursor);
 	stacks[B].array = malloc(sizeof(int) * stacks[A].cursor);
@@ -37,17 +37,16 @@ s_stack	ft_index(int *str, s_stack index)
 		count++;
 		i = 0;
 		pos = 0;
-	]
-	return (stack);
+	}
 }
 
-void	ft_push_swap(int *stack, int *index, int size)
-{
-	int *stackb;
+// void	ft_push_swap(int *stack, int *index, int size)
+// {
+// 	int *stackb;
 
-	stackb = malloc(sizeof(int) * size);
+// 	stackb = malloc(sizeof(int) * size);
 	
-}
+// }
 
 int	main(int argc, char** argv)
 {
@@ -55,7 +54,7 @@ int	main(int argc, char** argv)
     int size;
     char *num;
     int *stack;
-    s_stack stacks[2];
+    t_stack stacks[2];
     
     size = 1;   
     while (size <= argc)
@@ -66,10 +65,10 @@ int	main(int argc, char** argv)
     if (check_letters(num) == 1)
         return(write(2, "Error\n", 6));
     count = ft_split(num, ' ');
-    stacks[A].cursor = (int)ft_strlen(count) - 1;
+    stacks[A].cursor = (int)ft_strlen((char*)count) - 1;
     stack = ft_atoi_split(count);
-    stacks[A] = ft_index(stack, stacks[A]);
-	ft_push_swap(stack, stacks[A], size);
+    ft_index(stack, stacks);
+	// ft_push_swap(stack, stacks[A], size);
 }
 
 /*
