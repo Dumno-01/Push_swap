@@ -26,9 +26,9 @@ void	ft_index(int *str, t_stack stacks[2])
 	count = 0;
 	stacks[A].array = malloc(sizeof(int) * stacks[A].cursor);
 	stacks[B].array = malloc(sizeof(int) * stacks[A].cursor);
-	while (count <= stacks[A].cursor)
+	while (count < stacks[A].cursor)
 	{
-		while (i <= stacks[A].cursor)
+		while (i < stacks[A].cursor)
 		{
 			if (str[numb] < str[i++])
 				pos++;
@@ -56,8 +56,9 @@ int	main(int argc, char** argv)
     int *stack;
     t_stack stacks[2];
     
-    size = 1;   
-    while (size <= argc)
+    size = 1;
+	num = ft_calloc(sizeof(char), 1); 
+    while (size < argc)
     {
         num = ft_strjoin(num, argv[size]);
         size++;
@@ -68,8 +69,11 @@ int	main(int argc, char** argv)
     stacks[A].cursor = (int)ft_strlen((char*)count) - 1;
     stack = ft_atoi_split(count);
     ft_index(stack, stacks);
-	// ft_push_swap(stack, stacks[A], size);
+	free(num);
+	free(stacks[A].array);
+	free(stacks[B].array);
 }
+	// ft_push_swap(stack, stacks[A], size);
 
 /*
 

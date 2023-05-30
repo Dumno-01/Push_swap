@@ -27,7 +27,7 @@ int	ft_atoires(const char *str, int *res)
 			sign++;
 	while ((char)str[i] >= '0' && (char)str[i] <= '9')
 		*res = *res * 10 + ((char)str[i++] - '0');
-	if (*res > 2147483647 || *res < -2147483648)
+	if (*res > 2147483647 || *res <= -2147483648)
 		return(-1);
 	if (sign % 2 == 1)
 		*res = *res * -1;
