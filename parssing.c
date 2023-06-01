@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
 
 
 void	ft_index(int *str, t_stack stacks[2])
@@ -30,7 +31,7 @@ void	ft_index(int *str, t_stack stacks[2])
 	{
 		while (i < stacks[A].cursor)
 		{
-			if (str[numb] < str[i++])
+			if (str[numb] > str[i++])
 				pos++;
 		}
 		stacks[A].array[numb++] = pos;
@@ -65,9 +66,17 @@ int	main(int argc, char** argv)
     }
     if (check_letters(num) == 1)
         return(write(2, "Error\n", 6));
+    stacks[A].cursor = count_word(num, ' ');
     count = ft_split(num, ' ');
-    stacks[A].cursor = (int)ft_strlen((char*)count) - 1;
     stack = ft_atoi_split(count);
+	int i = 0;
+	while (i < stacks[A].cursor)
+	{
+		printf("%d\n", stack[i]);
+		i++;
+	}
+	if (check_double(stack, stacks[A].cursor) == 1)
+	 	return(write(2, "Error\n", 6));
     ft_index(stack, stacks);
 	free(num);
 	free(stacks[A].array);

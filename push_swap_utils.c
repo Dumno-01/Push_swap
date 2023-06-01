@@ -46,25 +46,24 @@ size_t	ft_strlen(const char	*s)
 
 int		check_double(int *str, int len)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
-	j = 1;
-	while (i < len)
+	while(i < len)
 	{
-		if (str[i] == str[j])
-			return (1);
-		else
-			j++;
-		if (j == len)
+		j = 0;
+		while (j < i)
 		{
-			i = j;
-			j = i + 1;
+			if (str[j] == str[i])
+				return (1);
+			j++;
 		}
-	}	
+		i++;
+	}
 	return (0);
 }
+
 
 int		check_letters(char *str)
 {
@@ -73,7 +72,7 @@ int		check_letters(char *str)
 	i = 0;
 	while (str[i])
 	{
-		if ((str[i] < '0' && str[i] != ' ') || (str[i] > '9' && str[i] != ' '))
+		if ((str[i] < '0' && str[i] != ' ' && str[i] != '-') || (str[i] > '9' && str[i] != ' ' && str[i] != '-'))
 			return (1);
 		i++;
 	}
