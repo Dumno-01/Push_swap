@@ -70,6 +70,8 @@ int	main(int argc, char** argv)
 	stacks[A].cursor = stacks[A].max_size;
     count = ft_split(num, ' ');
     stack = ft_atoi_split(count);
+	if (stack == -1)
+		//return free/exit
 	int i = 0;
 	while (i < stacks[A].max_size)
 	{

@@ -11,13 +11,16 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
 
 int	ft_atoires(const char *str, int *res)
 {
 	int						i;
 	int						sign;
+	long long int			test_overflow;
 
 	i = 0;
+	int tmp = 0;
 	*res = 0;
 	sign = 0;
 	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
@@ -25,10 +28,18 @@ int	ft_atoires(const char *str, int *res)
 	if ((char)str[i] == '-' || (char)str[i] == '+')
 		if ((char)str[i++] == '-')
 			sign++;
-	while ((char)str[i] >= '0' && (char)str[i] <= '9')
-		*res = *res * 10 + ((char)str[i++] - '0');
-	if (*res > 2147483647 || *res <= -2147483648)
+	tmp = i;
+	while ( str[i] )
+		i++;
+	if ( i - tmp > 10 )
 		return(-1);
+	i = tmp;				
+	while ((char)str[i] >= '0' && (char)str[i] <= '9')
+		test_overflow = test_overflow * 10 + (str[i++] - '0');
+	if (test_overflow > 2147483647 || test_overflow <= -2147483648)
+		return(-1);
+	else
+		*res = test_overflow;
 	if (sign % 2 == 1)
 		*res = *res * -1;
 	return (0);
@@ -83,14 +94,23 @@ int 	*ft_atoi_split(char **str)
 {
 	int i;
 	int *stack;
-	
-	stack = malloc(sizeof(int) * ft_strlen((char*)str));
-	i = 0;
-	
-	while(str[i] != 0)
+	int j = 0;
+	while (str[j])
 	{
-		ft_atoires(str[i], &stack[i]);
-		i++;
+		j++;
 	}
+	printf("size STR=%d\n", j);
+	stack = malloc(sizeof(int) * j);
+
+	i = 0;
+	printf("str[0]=%s\n", str[0]);
+	while(str[i] != NULL)
+	{
+		if(ft_atoires(str[i], &stack[i]) == 0)
+			i++;
+		else
+			return(write(2, "Error\n", 6))	
+	}
+	printf("stack[0]=%d\n", stack[0]);
 	return (stack);
 }

@@ -21,6 +21,7 @@ void swap_a(int *stack)
     tmp = stack[i];
     stack[i] = stack[i + 1];
     stack[i + 1] = tmp;
+    write(1, "sa\n", 3);
 }
 
 void ra(int *stack, int size)
@@ -36,6 +37,7 @@ void ra(int *stack, int size)
         i++;
     }
     stack[size - 1] = first_n;
+    write(1, "ra\n", 3);
 }
 
 void rra(int *stack, int size)
@@ -51,6 +53,7 @@ void rra(int *stack, int size)
         i--;
     }
     stack[0] = last_n;
+    write(1, "rra\n", 4);
 }
 
 void pb(t_stack stacks[2])
@@ -61,6 +64,7 @@ void pb(t_stack stacks[2])
     stacks[B].cursor++;
     stacks[A].cursor--;
   }
+  write(1, "pb\n", 3);
 }
 
 void pa(t_stack stacks[2])
@@ -71,6 +75,7 @@ void pa(t_stack stacks[2])
     stacks[A].cursor++;
     stacks[B].cursor--;
   }
+  write(1, "pa\n", 3);
 }
 
 /*PB
