@@ -35,7 +35,7 @@ void ra(int *stack, int size)
         stack[i] = stack[i + 1];
         i++;
     }
-    stack[size] = first_n;
+    stack[size - 1] = first_n;
 }
 
 void rra(int *stack, int size)
@@ -44,7 +44,7 @@ void rra(int *stack, int size)
     int i;
 
     i = size - 1;
-    last_n = stack[size];
+    last_n = stack[size - 1];
     while (i > 0)
     {
         stack[i] = stack[i - 1];

@@ -14,6 +14,8 @@
 # define PUSH_SWAP_H
 
 #include "libft.h"
+# include <stdlib.h>
+# include <unistd.h>
 
 # define A 0
 # define B 1
@@ -23,12 +25,17 @@ size_t	ft_strlen(const char     *s);
 int		check_letters(char *str);
 int 	*ft_atoi_split(char **str);
 int		check_double(int *str, int len);
+void swap_a(int *stack);
+void ra(int *stack, int size);
+void rra(int *stack, int size);
 typedef struct s_stack {
     int *array; // Tableau d'entier.
     int cursor; // Index du dernier element du tableau
     int max_size; // Nombre total delement
 }   t_stack;
 
+void pa(t_stack stacks[2]);
+void pb(t_stack stacks[2]);
 #endif
 
 /*

@@ -25,11 +25,11 @@ void	ft_index(int *str, t_stack stacks[2])
 	pos = 0;
 	numb = 0;
 	count = 0;
-	stacks[A].array = malloc(sizeof(int) * stacks[A].cursor);
-	stacks[B].array = malloc(sizeof(int) * stacks[A].cursor);
-	while (count < stacks[A].cursor)
+	stacks[A].array = malloc(sizeof(int) * stacks[A].max_size);
+	stacks[B].array = malloc(sizeof(int) * stacks[A].max_size);
+	while (count < stacks[A].max_size)
 	{
-		while (i < stacks[A].cursor)
+		while (i < stacks[A].max_size)
 		{
 			if (str[numb] > str[i++])
 				pos++;
@@ -66,16 +66,17 @@ int	main(int argc, char** argv)
     }
     if (check_letters(num) == 1)
         return(write(2, "Error\n", 6));
-    stacks[A].cursor = count_word(num, ' ');
+    stacks[A].max_size = count_word(num, ' ');
+	stacks[A].cursor = stacks[A].max_size;
     count = ft_split(num, ' ');
     stack = ft_atoi_split(count);
 	int i = 0;
-	while (i < stacks[A].cursor)
+	while (i < stacks[A].max_size)
 	{
 		printf("%d\n", stack[i]);
 		i++;
 	}
-	if (check_double(stack, stacks[A].cursor) == 1)
+	if (check_double(stack, stacks[A].max_size) == 1)
 	 	return(write(2, "Error\n", 6));
     ft_index(stack, stacks);
 	free(num);
