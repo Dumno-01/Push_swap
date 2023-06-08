@@ -36,6 +36,7 @@ typedef struct s_stack {
 
 void pa(t_stack stacks[2]);
 void pb(t_stack stacks[2]);
+void    sort_bit(t_stack stacks[2]);
 #endif
 
 /*

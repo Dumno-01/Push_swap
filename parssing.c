@@ -70,17 +70,12 @@ int	main(int argc, char** argv)
 	stacks[A].cursor = stacks[A].max_size;
     count = ft_split(num, ' ');
     stack = ft_atoi_split(count);
-	if (stack == -1)
-		//return free/exit
-	int i = 0;
-	while (i < stacks[A].max_size)
-	{
-		printf("%d\n", stack[i]);
-		i++;
-	}
+	if (stack == NULL)
+		return(0);
 	if (check_double(stack, stacks[A].max_size) == 1)
 	 	return(write(2, "Error\n", 6));
     ft_index(stack, stacks);
+	sort_bit(stacks);
 	free(num);
 	free(stacks[A].array);
 	free(stacks[B].array);

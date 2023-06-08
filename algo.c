@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
 
 int     bitcount(t_stack stacks[2])
 {
@@ -18,8 +19,9 @@ int     bitcount(t_stack stacks[2])
     int value;
     int k;
 
-    i = 0
+    i = 0;
     value = 0;
+    k = 0;
     while (i < stacks[A].max_size)
     {
         if (value < stacks[A].array[i])
@@ -47,17 +49,26 @@ void    sort_bit(t_stack stacks[2])
 {
     int i;
     int nb;
+    int k;
 
     i = 0;
     nb = 0;
+    k = bitcount(stacks);
+    printf("%d\n", k);
     while (i < k) 
     {
         while(nb < stacks[A].max_size)
         {
-            if(stacks[A].array[nb] >> i & 1)
+            if ((stacks[A].array[nb] >> i) & 1)
+            {
                 ra(stacks[A].array, stacks[A].max_size);
+                printf("%s\n", "ra");
+            }
             else
+            {
                 pb(stacks);
+                printf("%s\n", "pb");
+            }
             nb++;
         }
         push_stackb(stacks);
