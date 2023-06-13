@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ffreze <ffreze@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ffreze <ffreze@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 18:20:45 by ffreze            #+#    #+#             */
-/*   Updated: 2022/11/10 18:48:01 by ffreze           ###   ########.fr       */
+/*   Updated: 2023/06/13 14:15:31 by ffreze           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	ft_atoi(const char *str)
 		i++;
 	if ((char)str[i] == '-' || (char)str[i] == '+')
 		if ((char)str[i++] == '-')
-		sign ++;
+			sign ++;
 	while ((char)str[i] >= '0' && (char)str[i] <= '9')
 		nbr = nbr * 10 + ((char)str[i++] - '0');
 	if (sign % 2 == 1)

@@ -2,6 +2,7 @@ SRCS	=	parssing.c\
 			push_swap_utils.c\
 			swaping.c\
 			algo.c\
+			sort_small_stacks.c\
 
 HEAD	=	push_swap.h
 

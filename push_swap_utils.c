@@ -6,7 +6,7 @@
 /*   By: ffreze <ffreze@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 18:20:45 by ffreze            #+#    #+#             */
-/*   Updated: 2023/03/20 11:35:06 by ffreze           ###   ########.fr       */
+/*   Updated: 2023/06/13 14:06:20 by ffreze           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 
 int	ft_atoires(const char *str, int *res)
 {
-	int						i;
-	long int		nbr;
-	int						sign;
+	int			i;
+	long int	nbr;
+	int			sign;
 
 	i = 0;
 	nbr = 0;
@@ -26,11 +26,11 @@ int	ft_atoires(const char *str, int *res)
 		i++;
 	if ((char)str[i] == '-' || (char)str[i] == '+')
 		if ((char)str[i++] == '-')
-		sign ++;
+			sign ++;
 	while ((char)str[i] >= '0' && (char)str[i] <= '9')
 		nbr = nbr * 10 + ((char)str[i++] - '0');
 	if (nbr > 2147483647 || nbr <= -2147483648)
-		return(-1);
+		return (-1);
 	*res = nbr;
 	if (sign % 2 == 1)
 		*res = nbr * -1;
@@ -47,13 +47,13 @@ size_t	ft_strlen(const char	*s)
 	return (i);
 }
 
-int		check_double(int *str, int len)
+int	check_double(int *str, int len)
 {
 	int	i;
 	int	j;
 
 	i = 0;
-	while(i < len)
+	while (i < len)
 	{
 		j = 0;
 		while (j < i)
@@ -67,54 +67,45 @@ int		check_double(int *str, int len)
 	return (0);
 }
 
-
-int		check_letters(char *str)
+int	check_letters(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i])
 	{
-		if ((str[i] < '0' && str[i] != ' ' && str[i] != '-') || (str[i] > '9' && str[i] != ' ' && str[i] != '-'))
+		if ((str[i] < '0' && str[i] != ' ' && str[i] != '-') || \
+		(str[i] > '9' && str[i] != ' ' && str[i] != '-'))
 			return (1);
 		i++;
 	}
 	return (0);
 }
 
-int 	*ft_atoi_split(char **str)
+int	*ft_atoi_split(char **str)
 {
-	int i;
-	int *stack;
-	int j;
+	int	i;
+	int	*stack;
+	int	j;
 
 	j = 0;
 	while (str[j])
 	{
 		j++;
 	}
-	printf("size STR=%d\n", j);
 	stack = malloc(sizeof(int) * j);
-
 	i = 0;
-	printf("str[0]=%s\n", str[2]);
-	while(str[i] != NULL)
+	while (str[i] != NULL)
 	{
-		if(ft_atoires(str[i], &stack[i]) == 0)
+		if (ft_atoires(str[i], &stack[i]) == 0)
 		{
 			i++;
 		}
 		else
 		{
 			write(2, "Error\n", 6);
-			return(NULL);
+			return (NULL);
 		}
-	}
-	int x = 0;
-	while (x < j)
-	{
-		printf("%d\n", stack[x]);
-		x++;
 	}
 	return (stack);
 }
