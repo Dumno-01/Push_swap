@@ -6,7 +6,7 @@
 /*   By: ffreze <ffreze@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 13:49:41 by ffreze            #+#    #+#             */
-/*   Updated: 2023/06/13 14:03:18 by ffreze           ###   ########.fr       */
+/*   Updated: 2023/06/14 17:20:50 by ffreze           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,6 @@ int	bitcount(t_stack stacks[2])
 		k++;
 	}
 	return (k);
-}
-
-void	push_stackb(t_stack stacks[2])
-{
-	while (stacks[B].cursor > 0)
-	{
-		pa(stacks);
-	}
 }
 
 void	sort_bit(t_stack stacks[2])
@@ -81,9 +73,11 @@ void	choose_algo(t_stack stacks[2])
 	if (stacks[A].max_size == 2)
 		sa(stacks[A].array);
 	if (stacks[A].max_size == 3)
-		sort_small_stacks(stacks, 0);
+		sort_small_stacks(stacks, stacks[A].array);
 	if (stacks[A].max_size == 4)
-		sort_small_stack_higher(stacks);
+		sort_small_stack_four(stacks, stacks[A].array, 0);
+    if (stacks[A].max_size == 5)
+		sort_small_stack_max(stacks);
 	if (stacks[A].max_size > 5)
 		sort_bit(stacks);
 }

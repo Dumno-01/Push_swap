@@ -6,7 +6,7 @@
 /*   By: ffreze <ffreze@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 13:50:20 by ffreze            #+#    #+#             */
-/*   Updated: 2023/06/13 13:52:26 by ffreze           ###   ########.fr       */
+/*   Updated: 2023/06/14 17:20:06 by ffreze           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,12 @@ void	pa(t_stack stacks[2]);
 void	pb(t_stack stacks[2]);
 void	sort_bit(t_stack stacks[2]);
 void	choose_algo(t_stack stacks[2]);
-void	sort_small_stacks(t_stack stacks[2], int i);
-void	sort_small_stack_other(t_stack stacks[2], int i);
-void	sort_small_stack_higher(t_stack stacks[2]);
+void	sort_small_stacks(t_stack stacks[2], int *array);
+void	sort_small_stack_other(t_stack stacks[2], int *array);
+void	sort_small_stack_four(t_stack stacks[2], int *array, int five);
+void	push_stackb(t_stack stacks[2]);
+void	setup_size(t_stack stacks[2], char *num);
+void	sort_small_stack_max(t_stack stacks[2]);
+int 	*tab_for_four(t_stack stacks[2]);
+int		*tab_for_three(t_stack stacks[2]);
 #endif

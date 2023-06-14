@@ -6,14 +6,14 @@
 /*   By: ffreze <ffreze@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 13:49:41 by ffreze            #+#    #+#             */
-/*   Updated: 2023/06/13 14:09:47 by ffreze           ###   ########.fr       */
+/*   Updated: 2023/06/14 15:46:52 by ffreze           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
 
-void	ft_index(int *str, t_stack stacks[2])
+void	ft_index(int *str, t_stack stacks[3])
 {
 	int	count;
 	int	numb;
@@ -46,7 +46,7 @@ int	main(int argc, char **argv)
 	int		size;
 	char	*num;
 	int		*stack;
-	t_stack	stacks[2];
+	t_stack	stacks[3];
 
 	size = 1;
 	num = ft_calloc(sizeof(char), 1);
