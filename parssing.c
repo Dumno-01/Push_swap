@@ -46,7 +46,7 @@ int	main(int argc, char **argv)
 	int		size;
 	char	*num;
 	int		*stack;
-	t_stack	stacks[3];
+	t_stack	stacks[2];
 
 	size = 1;
 	num = ft_calloc(sizeof(char), 1);

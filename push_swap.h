@@ -28,6 +28,7 @@ int		check_double(int *str, int len);
 void	sa(int *stack);
 void	ra(int *stack, int size);
 void	rra(int *stack, int size);
+
 typedef struct s_stack {
 	int	*array;
 	int	cursor;

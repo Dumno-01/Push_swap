@@ -40,6 +40,21 @@ void	ra(int *stack, int size)
 	write(1, "ra\n", 3);
 }
 
+/*
+	RA ( le premier deviens le dernier )
+
+	if (cursor < 2)
+		return ;
+	size_t index = 1;
+	int	temp_first = stack[A].array[0];
+	while (index < cursor)
+	{
+		stack[A].array[index - 1] = stack[A].array[index];
+		index++;
+	}
+	stack[A].array[cursor - 1] = temp_first;
+*/
+
 void	rra(int *stack, int size)
 {
 	int	last_n;
@@ -66,6 +81,32 @@ void	pb(t_stack stacks[2])
 	}
 	write(1, "pb\n", 3);
 }
+
+/*
+	PB prend le premier sur A et le met sur B
+
+	size_t index;
+	int to_push;
+
+	if (stacks[A].cursor < 1)
+		return ;
+	index = 1;
+	to_push = stacks[A].array[0];
+	while (index < stacks[A].cursor)
+	{
+		stacks[A].array[index - 1] = stacks[A].array[index];
+		index++;
+	}
+	stacks[A].cursor--;
+	index = 1;
+	while (index < stacks[B].cursor)
+	{
+		stacks[B].array[index] = stacks[B].array[index - 1];
+		index++;
+	}
+	stacks[B].array[0] = to_push;
+	stacks[B].cursor++;
+*/
 
 void	pa(t_stack stacks[2])
 {
