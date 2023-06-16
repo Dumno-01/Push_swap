@@ -52,7 +52,7 @@ void	sort_bit(t_stack stacks[2])
 		{
 			if ((stacks[A].array[nb] >> i) & 1)
 			{
-				ra(stacks[A].array, stacks[A].max_size);
+				ra(stacks);
 			}
 			else
 			{
@@ -70,14 +70,14 @@ void	choose_algo(t_stack stacks[2])
 {
 	if (stacks[A].max_size == 0 || stacks[A].max_size == 1)
 		return ;
-	if (stacks[A].max_size == 2)
-		sa(stacks[A].array);
-	if (stacks[A].max_size == 3)
-		sort_small_stacks(stacks, stacks[A].array);
-	if (stacks[A].max_size == 4)
-		sort_small_stack_four(stacks, stacks[A].array, 0);
-    if (stacks[A].max_size == 5)
-		sort_small_stack_max(stacks);
-	if (stacks[A].max_size > 5)
+	else if ((stacks[A].max_size == 2) && (is_sorted(stacks) == 1))
+		sa(stacks);
+	else if (stacks[A].max_size == 3 && (is_sorted(stacks) == 1))
+		sort_small_stacks(stacks);
+	// if (stacks[A].max_size == 4)
+	// 	sort_small_stack_four(stacks, stacks[A].array, 0);
+    // if (stacks[A].max_size == 5)
+	// 	sort_small_stack_max(stacks);
+	else if (stacks[A].max_size > 5)
 		sort_bit(stacks);
 }

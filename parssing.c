@@ -13,7 +13,7 @@
 #include "push_swap.h"
 #include <stdio.h>
 
-void	ft_index(int *str, t_stack stacks[3])
+void	ft_index(int *str, t_stack stacks[2])
 {
 	int	count;
 	int	numb;

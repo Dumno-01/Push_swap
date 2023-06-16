@@ -85,3 +85,71 @@ int		*tab_for_three(t_stack stacks[2])
 // 	sort_small_stacks(stacks, fivearray);
 // 	pa(stacks);
 // }
+
+void shift_bit_a(t_stack stacks[2], t_direction dir)
+{
+	size_t index;
+
+	index = 1;
+	if (dir == LEFT)
+	{
+		while (index < stacks[A].cursor)
+		{
+			stacks[A].array[index - 1] = stacks[A].array[index];
+			index++;
+		}
+	}
+	index = 1;
+	if (dir == RIGHT)
+	{
+		while (index < stacks[A].cursor)
+		{
+			stacks[A].array[index] = stacks[A].array[index - 1];
+			index++;
+		}
+	}
+}
+
+void shift_bit_b(t_stack stacks[2], t_direction dir)
+{
+	size_t index;
+
+	index = 1;
+	if (dir == LEFT)
+	{
+		while (index < stacks[B].cursor)
+		{
+			stacks[B].array[index - 1] = stacks[B].array[index];
+			index++;
+		}
+	}
+	index = 1;
+	if (dir == RIGHT)
+	{
+		while (index < stacks[B].cursor)
+		{
+			stacks[B].array[index] = stacks[B].array[index - 1];
+			index++;
+		}
+	}
+}
+
+int	is_sorted(t_stack stacks[2])
+{
+	int i;
+	int k;
+
+	i = 0;
+	k = 1;
+
+	if (stacks[A].array[i] > stacks[A].array[k])
+		return (1);
+	while (i < stacks[A].max_size - 1)
+	{
+		if (stacks[A].array[i] > stacks[A].array[k])
+			return (1);
+		i++;
+		k++;
+	}
+	return(0);
+}
