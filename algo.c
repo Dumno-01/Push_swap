@@ -6,7 +6,7 @@
 /*   By: ffreze <ffreze@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 13:49:41 by ffreze            #+#    #+#             */
-/*   Updated: 2023/06/14 17:20:50 by ffreze           ###   ########.fr       */
+/*   Updated: 2023/06/20 13:52:56 by ffreze           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,16 +41,15 @@ void	sort_bit(t_stack stacks[2])
 {
 	int	i;
 	int	nb;
-	int	k;
 
 	i = 0;
-	nb = 0;
-	k = bitcount(stacks);
-	while (i < k)
+	while (is_sorted(stacks) != 0)
 	{
+		nb = 0;
 		while (nb < stacks[A].max_size)
 		{
-			if ((stacks[A].array[nb] >> i) & 1)
+			printf("%d\n", stacks[A].array[0]);
+			if ((stacks[A].array[0] >> i) & 1)
 			{
 				ra(stacks);
 			}
@@ -62,7 +61,6 @@ void	sort_bit(t_stack stacks[2])
 		}
 		push_stackb(stacks);
 		i++;
-		nb = 0;
 	}
 }
 
@@ -74,10 +72,10 @@ void	choose_algo(t_stack stacks[2])
 		sa(stacks);
 	else if (stacks[A].max_size == 3 && (is_sorted(stacks) == 1))
 		sort_small_stacks(stacks);
-	// if (stacks[A].max_size == 4)
-	// 	sort_small_stack_four(stacks, stacks[A].array, 0);
-    // if (stacks[A].max_size == 5)
-	// 	sort_small_stack_max(stacks);
+	else if (stacks[A].max_size == 4 && (is_sorted(stacks) == 1))
+		sort_small_stack_four(stacks);
+    else if (stacks[A].max_size == 5 && (is_sorted(stacks) == 1))
+		sort_small_stack_max(stacks );
 	else if (stacks[A].max_size > 5)
 		sort_bit(stacks);
 }

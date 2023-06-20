@@ -55,53 +55,49 @@ void	sort_small_stack_other(t_stack stacks[2])
 		ra(stacks);
 }
 
-// void	sort_small_stack_four(t_stack stacks[2], int *array)
-// {
-// 	int	i;
+void	sort_small_stack_four(t_stack stacks[2])
+{
+	int	i;
 
-// 	i = 0;
-// 	while (array[i] != five)
-// 	{
-// 		i++;
-// 	}	
-// 	if (i == 1)
-// 		ra(array, stacks[A].max_size);
-// 	else if (i == 2)
-// 	{
-// 		ra(array, stacks[A].max_size);
-// 		ra(array, stacks[A].max_size);
-// 	}
-// 	else if (i == 3)
-// 		rra(array, stacks[A].max_size);
-// 	pb(stacks);
-// 	sort_small_stacks(stacks, threetab);
-// 	pa(stacks);
-// }
+	i = 0;
+	while (stacks[A].array[i] != 0)
+		i++;	
+	if (i == 1)
+		ra(stacks);
+	else if (i == 2)
+	{
+		ra(stacks);
+		ra(stacks);
+	}
+	else if (i == 3)
+		rra(stacks);
+	pb(stacks);
+	sort_small_stacks(stacks);
+	pa(stacks);
+}
 
-// void	sort_small_stack_max(t_stack stacks[2])
-// {
-// 	int five;
-// 	int *fivearray;
-	
-// 	five = 0;
-// 	while (stacks[A].array[five] != 0)
-// 		five++;
-// 	if (five == 1)
-// 		ra(stacks[A].array, stacks[A].max_size);
-// 	else if (five == 2)
-// 	{
-// 		ra(stacks[A].array, stacks[A].max_size);
-// 		ra(stacks[A].array, stacks[A].max_size);
-// 	}
-// 	else if (five == 3)
-// 	{
-// 		rra(stacks[A].array, stacks[A].max_size);
-// 		rra(stacks[A].array, stacks[A].max_size);
-// 	}
-// 	else if (five == 4)
-// 		rra(stacks[A].array, stacks[A].max_size);
-// 	pb(stacks);
-// 	fivearray = tab_for_four(stacks);
-// 	sort_small_stack_four(stacks, fivearray, 1);
-// 	pa(stacks);
-// }
+void	sort_small_stack_max(t_stack stacks[2])
+{
+	int	i;
+
+	i = 0;
+	while (stacks[A].array[i] != 1)
+		i++;	
+	if (i == 1)
+		ra(stacks);
+	else if (i == 2)
+	{
+		ra(stacks);
+		ra(stacks);
+	}
+	else if (i == 3)
+	{
+		rra(stacks);
+		rra(stacks);
+	}
+		else if (i == 4)
+		rra(stacks);
+	pb(stacks);
+	sort_small_stack_four(stacks);
+	pa(stacks);
+}
