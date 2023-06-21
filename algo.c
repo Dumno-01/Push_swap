@@ -48,7 +48,6 @@ void	sort_bit(t_stack stacks[2])
 		nb = 0;
 		while (nb < stacks[A].max_size)
 		{
-			printf("%d\n", stacks[A].array[0]);
 			if ((stacks[A].array[0] >> i) & 1)
 			{
 				ra(stacks);
@@ -63,6 +62,7 @@ void	sort_bit(t_stack stacks[2])
 		i++;
 	}
 }
+void	DEBUG_STACKS(t_stack stacks[2]);
 
 void	choose_algo(t_stack stacks[2])
 {
@@ -73,9 +73,10 @@ void	choose_algo(t_stack stacks[2])
 	else if (stacks[A].max_size == 3 && (is_sorted(stacks) == 1))
 		sort_small_stacks(stacks);
 	else if (stacks[A].max_size == 4 && (is_sorted(stacks) == 1))
-		sort_small_stack_four(stacks);
+		sort_small_stack_max(stacks);
     else if (stacks[A].max_size == 5 && (is_sorted(stacks) == 1))
 		sort_small_stack_max(stacks );
 	else if (stacks[A].max_size > 5)
 		sort_bit(stacks);
+	// DEBUG_STACKS(stacks);
 }

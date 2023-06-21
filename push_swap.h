@@ -16,6 +16,7 @@
 # include "libft.h"
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdio.h>
 
 # define A 0
 # define B 1
@@ -46,13 +47,12 @@ void	sort_bit(t_stack stacks[2]);
 void	choose_algo(t_stack stacks[2]);
 void	sort_small_stacks(t_stack stacks[2]);
 void	sort_small_stack_other(t_stack stacks[2]);
-void	sort_small_stack_four(t_stack stacks[2]);
+void	sort_small_stack_max(t_stack stacks[2]);
 void	push_stackb(t_stack stacks[2]);
 void	setup_size(t_stack stacks[2], char *num);
-void	sort_small_stack_max(t_stack stacks[2]);
-int 	*tab_for_four(t_stack stacks[2]);
-int		*tab_for_three(t_stack stacks[2]);
-int	is_sorted(t_stack stacks[2]);
-void shift_bit_a(t_stack stacks[2], t_direction dir);
-void shift_bit_b(t_stack stacks[2], t_direction dir);
+int		is_sorted(t_stack stacks[2]);
+void 	shift_bit_a(t_stack stacks[2], t_direction dir);
+void 	shift_bit_b(t_stack stacks[2], t_direction dir);
+void	top_min(t_stack stacks[2]);
+int		find_min(t_stack stacks[2]);
 #endif

@@ -41,13 +41,13 @@ void shift_bit_a(t_stack stacks[2], t_direction dir)
 			index++;
 		}
 	}
-	index = 1;
+	index = stacks[A].cursor;
 	if (dir == RIGHT)
 	{
-		while (index < stacks[A].cursor)
+		while (index >= 1)
 		{
 			stacks[A].array[index] = stacks[A].array[index - 1];
-			index++;
+			index--;
 		}
 	}
 }
@@ -65,13 +65,13 @@ void shift_bit_b(t_stack stacks[2], t_direction dir)
 			index++;
 		}
 	}
-	index = 1;
+	index = stacks[B].cursor;
 	if (dir == RIGHT)
 	{
-		while (index < stacks[B].cursor)
+		while (index >= 1)
 		{
 			stacks[B].array[index] = stacks[B].array[index - 1];
-			index++;
+			index--;
 		}
 	}
 }

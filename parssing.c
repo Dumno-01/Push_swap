@@ -13,6 +13,25 @@
 #include "push_swap.h"
 #include <stdio.h>
 
+void	DEBUG_STACKS(t_stack stacks[2])
+{
+	printf("--------------\n");
+	printf("- STACK A ----\n");
+	printf("- CURSOR : %ld\n", stacks[A].cursor);
+	for (size_t i = 0; i < stacks[A].cursor; i++)
+	{
+		printf("[%d] - ", stacks[A].array[i]);
+	}
+	printf("\n-------------\n");
+	printf("- STACK B ----\n");
+	printf("- CURSOR : %ld\n", stacks[B].cursor);
+	for (size_t i = 0; i < stacks[B].cursor; i++)
+	{
+		printf("[%d] - ", stacks[B].array[i]);
+	}
+	printf("\n-------------\n\n\n");
+}
+
 void	ft_index(int *str, t_stack stacks[2])
 {
 	int	count;
