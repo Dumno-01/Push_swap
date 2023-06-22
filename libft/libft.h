@@ -6,7 +6,7 @@
 /*   By: ffreze <ffreze@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 18:58:31 by ffreze            #+#    #+#             */
-/*   Updated: 2023/06/14 15:09:05 by ffreze           ###   ########.fr       */
+/*   Updated: 2023/06/22 13:47:14 by ffreze           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,4 +64,5 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 t_list	*ft_lstnew(void *content);
 int		ft_lstsize(t_list *lst);
 void	*ft_calloc(size_t n, size_t size);
+void	ft_free_split(void *splitted_element);
 #endif

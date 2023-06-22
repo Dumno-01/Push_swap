@@ -6,7 +6,7 @@
 /*   By: ffreze <ffreze@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 14:10:10 by ffreze            #+#    #+#             */
-/*   Updated: 2023/06/20 13:20:02 by ffreze           ###   ########.fr       */
+/*   Updated: 2023/06/22 11:30:34 by ffreze           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,9 @@ void	push_stackb(t_stack stacks[2])
 	}
 }
 
-
-void shift_bit_a(t_stack stacks[2], t_direction dir)
+void	shift_bit_a(t_stack stacks[2], t_direction dir)
 {
-	size_t index;
+	size_t	index;
 
 	index = 1;
 	if (dir == LEFT)
@@ -52,9 +51,9 @@ void shift_bit_a(t_stack stacks[2], t_direction dir)
 	}
 }
 
-void shift_bit_b(t_stack stacks[2], t_direction dir)
+void	shift_bit_b(t_stack stacks[2], t_direction dir)
 {
-	size_t index;
+	size_t	index;
 
 	index = 1;
 	if (dir == LEFT)
@@ -78,12 +77,11 @@ void shift_bit_b(t_stack stacks[2], t_direction dir)
 
 int	is_sorted(t_stack stacks[2])
 {
-	int i;
-	int k;
+	int	i;
+	int	k;
 
 	i = 0;
 	k = 1;
-
 	if (stacks[A].array[i] > stacks[A].array[k])
 		return (1);
 	while (i < stacks[A].max_size - 1)
@@ -93,5 +91,5 @@ int	is_sorted(t_stack stacks[2])
 		i++;
 		k++;
 	}
-	return(0);
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: ffreze <ffreze@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 13:50:20 by ffreze            #+#    #+#             */
-/*   Updated: 2023/06/20 10:37:17 by ffreze           ###   ########.fr       */
+/*   Updated: 2023/06/22 14:01:58 by ffreze           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include "libft.h"
 # include <stdlib.h>
 # include <unistd.h>
-# include <stdio.h>
 
 # define A 0
 # define B 1
@@ -28,15 +27,15 @@ int		*ft_atoi_split(char **str);
 int		check_double(int *str, int len);
 
 typedef struct s_stack {
-	int	*array;
+	int		*array;
 	size_t	cursor;
-	int	max_size;
+	int		max_size;
 }	t_stack;
 
 typedef enum e_direction {
-LEFT,
-RIGHT
-} t_direction;
+	LEFT,
+	RIGHT
+}	t_direction;
 
 void	sa(t_stack stacks[2]);
 void	ra(t_stack stacks[2]);
@@ -51,8 +50,9 @@ void	sort_small_stack_max(t_stack stacks[2]);
 void	push_stackb(t_stack stacks[2]);
 void	setup_size(t_stack stacks[2], char *num);
 int		is_sorted(t_stack stacks[2]);
-void 	shift_bit_a(t_stack stacks[2], t_direction dir);
-void 	shift_bit_b(t_stack stacks[2], t_direction dir);
-void	top_min(t_stack stacks[2]);
+void	shift_bit_a(t_stack stacks[2], t_direction dir);
+void	shift_bit_b(t_stack stacks[2], t_direction dir);
+void	top_min(t_stack stacks[2], int size);
 int		find_min(t_stack stacks[2]);
+int		free_all(char *num, int *stack, char **count, t_stack stacks[2]);
 #endif

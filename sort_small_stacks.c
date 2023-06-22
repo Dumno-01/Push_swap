@@ -1,4 +1,4 @@
-// /* ************************************************************************** */
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   sort_small_stacks.c                                :+:      :+:    :+:   */
@@ -6,7 +6,7 @@
 /*   By: ffreze <ffreze@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 14:34:11 by ffreze            #+#    #+#             */
-/*   Updated: 2023/06/14 17:56:06 by ffreze           ###   ########.fr       */
+/*   Updated: 2023/06/22 12:09:20 by ffreze           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	sort_small_stacks(t_stack stacks[2])
 {
 	int	k;
-	int i;
+	int	i;
 
 	i = 0;
 	k = 1;
@@ -43,8 +43,8 @@ void	sort_small_stacks(t_stack stacks[2])
 void	sort_small_stack_other(t_stack stacks[2])
 {
 	int	k;
-	int i;
-	
+	int	i;
+
 	i = 0;
 	k = 1;
 	if ((stacks[A].array[i] > stacks[A].array[k]) && \
@@ -57,11 +57,11 @@ void	sort_small_stack_other(t_stack stacks[2])
 
 void	sort_small_stack_max(t_stack stacks[2])
 {
-	top_min(stacks);
+	top_min(stacks, stacks[A].max_size);
 	pb(stacks);
 	if (stacks[A].max_size == 5)
 	{
-		top_min(stacks);
+		top_min(stacks, stacks[A].cursor);
 		pb(stacks);
 	}
 	sort_small_stacks(stacks);
@@ -70,10 +70,12 @@ void	sort_small_stack_max(t_stack stacks[2])
 		pa(stacks);
 }
 
-void	top_min(t_stack stacks[2])
+void	top_min(t_stack stacks[2], int size)
 {
-	size_t min;
+	size_t	min;
+	size_t	i;
 
+	i = 1;
 	min = find_min(stacks);
 	if (min == 1)
 		ra(stacks);
@@ -83,18 +85,19 @@ void	top_min(t_stack stacks[2])
 		ra(stacks);
 	}
 	else if (min == 3)
-		rra(stacks);
-	else if (min == 4)
 	{
+		if (size == 5)
+			rra(stacks);
 		rra(stacks);
+	}
+	else if (min == 4)
 		rra(stacks);
-	}	
 }
 
-int		find_min(t_stack stacks[2])
+int	find_min(t_stack stacks[2])
 {
-	size_t i;
-	size_t k;
+	size_t	i;
+	size_t	k;
 
 	i = 0;
 	k = 1;

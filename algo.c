@@ -6,7 +6,7 @@
 /*   By: ffreze <ffreze@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 13:49:41 by ffreze            #+#    #+#             */
-/*   Updated: 2023/06/20 13:52:56 by ffreze           ###   ########.fr       */
+/*   Updated: 2023/06/22 11:32:58 by ffreze           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,9 +74,8 @@ void	choose_algo(t_stack stacks[2])
 		sort_small_stacks(stacks);
 	else if (stacks[A].max_size == 4 && (is_sorted(stacks) == 1))
 		sort_small_stack_max(stacks);
-    else if (stacks[A].max_size == 5 && (is_sorted(stacks) == 1))
-		sort_small_stack_max(stacks );
+	else if (stacks[A].max_size == 5 && (is_sorted(stacks) == 1))
+		sort_small_stack_max(stacks);
 	else if (stacks[A].max_size > 5)
 		sort_bit(stacks);
-	// DEBUG_STACKS(stacks);
 }
