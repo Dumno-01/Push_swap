@@ -6,7 +6,7 @@
 /*   By: ffreze <ffreze@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 13:49:41 by ffreze            #+#    #+#             */
-/*   Updated: 2023/06/22 14:32:53 by ffreze           ###   ########.fr       */
+/*   Updated: 2023/06/22 15:13:07 by ffreze           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,24 +46,28 @@ int	main(int argc, char **argv)
 	int		*s;
 	t_stack	stacks[2];
 
-	stacks[A].array = NULL;
-	stacks[B].array = NULL;
-	n = join_all(argv, 1 , argc);
+	n = join_all(argv, 1, argc);
+	if (n == NULL)
+		return (write(2, "Error\n", 6));
 	if (check_letters(n) == 1)
 		return (free(n), write(2, "Error\n", 6));
 	setup_size(stacks, n);
 	c = ft_split(n, ' ');
+	if (c == NULL)
+		return (free_all(n, NULL, NULL, stacks), write(2, "Error\n", 6));
 	s = ft_atoi_split(c);
 	if (s == NULL)
-		return (0);
+		return (free_all(n, NULL, c, stacks), write(2, "Error\n", 6));
 	if (check_double(s, stacks[A].max_size) == 1)
 		return (free_all(n, s, c, stacks), write(2, "Error\n", 6));
 	ft_index(s, stacks);
+	if (stacks[A].array == NULL || stacks[B].array == NULL)
+		return (free_all(n, s, c, stacks), write(2, "Error\n", 6));
 	choose_algo(stacks);
 	free_all(n, s, c, stacks);
 }
 
-void free_all(char *num, int *stack, char **count, t_stack stacks[2])
+void	free_all(char *num, int *stack, char **count, t_stack stacks[2])
 {
 	free(num);
 	free(stack);
@@ -74,10 +78,10 @@ void free_all(char *num, int *stack, char **count, t_stack stacks[2])
 		return ;
 }
 
-char *join_all(char **argv, int size, int argc)
+char	*join_all(char **argv, int size, int argc)
 {
-	char *n;
-	
+	char	*n;
+
 	n = ft_calloc(sizeof(char), 1);
 	while (size < argc)
 	{
