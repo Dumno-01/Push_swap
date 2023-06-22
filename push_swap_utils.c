@@ -6,12 +6,11 @@
 /*   By: ffreze <ffreze@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 18:20:45 by ffreze            #+#    #+#             */
-/*   Updated: 2023/06/13 14:06:20 by ffreze           ###   ########.fr       */
+/*   Updated: 2023/06/22 16:01:30 by ffreze           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 int	ft_atoires(const char *str, int *res)
 {
@@ -26,10 +25,12 @@ int	ft_atoires(const char *str, int *res)
 		i++;
 	if ((char)str[i] == '-' || (char)str[i] == '+')
 		if ((char)str[i++] == '-')
-			sign ++;
-	while ((char)str[i] >= '0' && (char)str[i] <= '9')
+			sign++;
+	if (!((char)str[i] >= '0' && (char)str[i] <= '9'))
+		return (-1);
+	while ((char)str[i] >= '0' && (char)str[i] <= '9' && str[i])
 		nbr = nbr * 10 + ((char)str[i++] - '0');
-	if (nbr > 2147483647 || nbr <= -2147483648)
+	if (nbr > 2147483647 || nbr <= -2147483648 || str[i] != '\0')
 		return (-1);
 	*res = nbr;
 	if (sign % 2 == 1)
@@ -94,6 +95,8 @@ int	*ft_atoi_split(char **str)
 		j++;
 	}
 	stack = malloc(sizeof(int) * j);
+	if (!stack)
+		return (NULL);
 	i = 0;
 	while (str[i] != NULL)
 	{
@@ -103,8 +106,7 @@ int	*ft_atoi_split(char **str)
 		}
 		else
 		{
-			write(2, "Error\n", 6);
-			return (NULL);
+			return (free(stack), NULL);
 		}
 	}
 	return (stack);

@@ -6,12 +6,11 @@
 /*   By: ffreze <ffreze@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 13:49:41 by ffreze            #+#    #+#             */
-/*   Updated: 2023/06/22 11:32:58 by ffreze           ###   ########.fr       */
+/*   Updated: 2023/06/22 16:02:12 by ffreze           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 int	bitcount(t_stack stacks[2])
 {
