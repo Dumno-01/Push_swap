@@ -6,7 +6,7 @@
 /*   By: ffreze <ffreze@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 13:49:41 by ffreze            #+#    #+#             */
-/*   Updated: 2023/06/22 14:01:17 by ffreze           ###   ########.fr       */
+/*   Updated: 2023/06/22 14:32:53 by ffreze           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,18 +42,13 @@ void	ft_index(int *str, t_stack stacks[2])
 int	main(int argc, char **argv)
 {
 	char	**c;
-	int		size;
 	char	*n;
 	int		*s;
 	t_stack	stacks[2];
 
-	size = 1;
-	n = ft_calloc(sizeof(char), 1);
-	while (size < argc)
-	{
-		n = ft_strjoin(n, argv[size]);
-		size++;
-	}
+	stacks[A].array = NULL;
+	stacks[B].array = NULL;
+	n = join_all(argv, 1 , argc);
 	if (check_letters(n) == 1)
 		return (free(n), write(2, "Error\n", 6));
 	setup_size(stacks, n);
@@ -62,18 +57,32 @@ int	main(int argc, char **argv)
 	if (s == NULL)
 		return (0);
 	if (check_double(s, stacks[A].max_size) == 1)
-		return (write(2, "Error\n", 6), free_all(n, s, c, stacks));
+		return (free_all(n, s, c, stacks), write(2, "Error\n", 6));
 	ft_index(s, stacks);
 	choose_algo(stacks);
 	free_all(n, s, c, stacks);
 }
 
-int	free_all(char *num, int *stack, char **count, t_stack stacks[2])
+void free_all(char *num, int *stack, char **count, t_stack stacks[2])
 {
 	free(num);
 	free(stack);
 	ft_free_split(count);
 	free(stacks[A].array);
 	free(stacks[B].array);
-	return (0);
+	if (stack || num || count)
+		return ;
+}
+
+char *join_all(char **argv, int size, int argc)
+{
+	char *n;
+	
+	n = ft_calloc(sizeof(char), 1);
+	while (size < argc)
+	{
+		n = ft_strjoin(n, argv[size]);
+		size++;
+	}
+	return (n);
 }

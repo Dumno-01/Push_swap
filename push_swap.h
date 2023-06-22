@@ -6,7 +6,7 @@
 /*   By: ffreze <ffreze@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 13:50:20 by ffreze            #+#    #+#             */
-/*   Updated: 2023/06/22 14:01:58 by ffreze           ###   ########.fr       */
+/*   Updated: 2023/06/22 14:20:59 by ffreze           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,6 @@ void	shift_bit_a(t_stack stacks[2], t_direction dir);
 void	shift_bit_b(t_stack stacks[2], t_direction dir);
 void	top_min(t_stack stacks[2], int size);
 int		find_min(t_stack stacks[2]);
-int		free_all(char *num, int *stack, char **count, t_stack stacks[2]);
+void	free_all(char *num, int *stack, char **count, t_stack stacks[2]);
+char	*join_all(char **argv, int size, int argc);
 #endif
