@@ -6,7 +6,7 @@
 /*   By: ffreze <ffreze@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 13:49:41 by ffreze            #+#    #+#             */
-/*   Updated: 2023/06/22 16:02:16 by ffreze           ###   ########.fr       */
+/*   Updated: 2023/06/23 13:38:49 by ffreze           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,10 @@ void	ft_index(int *str, t_stack stacks[2])
 	pos = 0;
 	numb = 0;
 	count = 0;
-	stacks[A].array = malloc(sizeof(int) * stacks[A].max_size);
-	stacks[B].array = malloc(sizeof(int) * stacks[A].max_size);
+	stacks[A].array = malloc(sizeof(int) * (stacks[A].max_size + 1));
+	stacks[B].array = malloc(sizeof(int) * (stacks[A].max_size + 1));
+	if (stacks[A].array == NULL)
+		return ;
 	while (count < stacks[A].max_size)
 	{
 		while (i < stacks[A].max_size)

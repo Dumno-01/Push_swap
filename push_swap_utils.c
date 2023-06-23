@@ -6,7 +6,7 @@
 /*   By: ffreze <ffreze@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 18:20:45 by ffreze            #+#    #+#             */
-/*   Updated: 2023/06/22 16:01:30 by ffreze           ###   ########.fr       */
+/*   Updated: 2023/06/23 13:38:21 by ffreze           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,11 @@ int	ft_atoires(const char *str, int *res)
 		return (-1);
 	while ((char)str[i] >= '0' && (char)str[i] <= '9' && str[i])
 		nbr = nbr * 10 + ((char)str[i++] - '0');
-	if (nbr > 2147483647 || nbr <= -2147483648 || str[i] != '\0')
+	if (sign % 2 == 1)
+		nbr = nbr * -1;
+	if (nbr > 2147483647 || nbr < -2147483648 || str[i] != '\0')
 		return (-1);
 	*res = nbr;
-	if (sign % 2 == 1)
-		*res = nbr * -1;
 	return (0);
 }
 
