@@ -6,7 +6,7 @@
 /*   By: ffreze <ffreze@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 13:49:41 by ffreze            #+#    #+#             */
-/*   Updated: 2023/06/22 16:02:12 by ffreze           ###   ########.fr       */
+/*   Updated: 2023/06/26 10:50:43 by ffreze           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ void	sort_bit(t_stack stacks[2])
 		i++;
 	}
 }
-void	DEBUG_STACKS(t_stack stacks[2]);
 
 void	choose_algo(t_stack stacks[2])
 {

@@ -17,7 +17,7 @@ CC		=	cc
 
 RM		=	rm -f
 
-FLAG	=	-Wall -Wextra -Werror
+FLAG	=	-Wall -Wextra -Werror -g3
 
 %.o: %.c $(HEAD)
 		$(CC) $(FLAG) -c $< -o $@ -I. -I./libft
